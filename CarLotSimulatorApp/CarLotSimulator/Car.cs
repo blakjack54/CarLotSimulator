@@ -1,22 +1,33 @@
+using System; // Ensure this is included
+
 namespace CarLotSimulator
 {
     public class Car
     {
-        public int Year { get; set; }
+        // Properties of the Car class
         public string Make { get; set; }
         public string Model { get; set; }
-        public string EngineNoise { get; set; }
-        public string HonkNoise { get; set; }
-        public bool IsDriveable { get; set; }
+        public int Year { get; set; }
+        public string Color { get; set; }
+        public bool IsElectric { get; set; }
 
-        public void MakeEngineNoise()
+        // Constructor to initialize Car properties and increment the car count
+        public Car(string make, string model, int year, string color, bool isElectric)
         {
-            Console.WriteLine(EngineNoise);
+            Make = make;
+            Model = model;
+            Year = year;
+            Color = color;
+            IsElectric = isElectric;
+            
+            // Increment the car count in CarLot
+            CarLot.numberOfCars++;
         }
 
-        public void MakeHonkNoise()
+        // Method to display car information
+        public void DisplayInfo()
         {
-            Console.WriteLine(HonkNoise);
+            Console.WriteLine($"Make: {Make}, Model: {Model}, Year: {Year}, Color: {Color}, Electric: {IsElectric}");
         }
     }
 }
